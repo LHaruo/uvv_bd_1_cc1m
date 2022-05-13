@@ -48,10 +48,10 @@ SELECT nome_departamento                                       as Departamento,
        CONCAT(primeiro_nome," ", nome_meio," ",ultimo_nome)    as Funcionário,
        CONCAT(nome_dependente," ", nome_meio," ",ultimo_nome)  as Dependente,
        YEAR(CURRENT_DATE()) - YEAR(dependente.data_nascimento) as Idade_Dependente,
-CASE dependente.sexo
-    WHEN 'M' THEN 'Masculino'
-    ELSE 'Feminino'
-END                                                            as Sexo_Dependente
+       CASE dependente.sexo
+           WHEN 'M' THEN 'Masculino'
+           ELSE 'Feminino'
+       END                                                     as Sexo_Dependente
 FROM funcionario
 INNER JOIN dependente   on dependente.cpf_funcionario       = funcionario.cpf
 INNER JOIN departamento on departamento.numero_departamento = funcionario.numero_departamento;
@@ -140,23 +140,3 @@ FROM departamento
 INNER JOIN funcionario on funcionario.numero_departamento = departamento.numero_departamento
 INNER JOIN projeto     on projeto.numero_departamento     = departamento.numero_departamento
 ORDER by Funcionário;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
