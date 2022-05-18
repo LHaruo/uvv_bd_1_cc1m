@@ -356,7 +356,7 @@ Durante o natal deste ano a empresa irá presentear todos os funcionários e tod
 > Código utilizado e tabela resultado:
 ```sql
 -- Questão 13
-SELECT CONCAT(primeiro_nome, " ", nome_meio, ". ",ultimo_nome)      as Nome_Completo,
+SELECT CONCAT(primeiro_nome, " ", nome_meio, ". ", ultimo_nome)      as Nome_Completo,
        YEAR(CURRENT_DATE()) - YEAR(data_nascimento)                 as Idade,
        CASE sexo
            WHEN 'M' THEN 'Masculino'
@@ -397,7 +397,7 @@ ORDER BY Idade DESC;
 > O código sem o erro e a sua tabela resultado seriam assim:
 ```sql
 -- Questão 13
-SELECT CONCAT(primeiro_nome, " ", nome_meio, ". ",ultimo_nome) as Nome_Completo,
+SELECT CONCAT(primeiro_nome, " ", nome_meio, ". ", ultimo_nome) as Nome_Completo,
        YEAR(CURRENT_DATE()) - YEAR(data_nascimento)            as Idade,
        CASE sexo
            WHEN 'M' THEN 'Masculino'
