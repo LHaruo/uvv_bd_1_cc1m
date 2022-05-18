@@ -356,20 +356,20 @@ Durante o natal deste ano a empresa irá presentear todos os funcionários e tod
 > Código utilizado e tabela resultado:
 ```sql
 -- Questão 13
-SELECT CONCAT(primeiro_nome, " ", nome_meio, ". ", ultimo_nome)      as Nome_Completo,
-       YEAR(CURRENT_DATE()) - YEAR(data_nascimento)                 as Idade,
+SELECT CONCAT(primeiro_nome, " ", nome_meio, ". ", ultimo_nome)   as Nome_Completo,
+       YEAR(CURRENT_DATE()) - YEAR(data_nascimento)               as Idade,
        CASE sexo
            WHEN 'M' THEN 'Masculino'
            ELSE 'Feminino'
-       END                                                          as Sexo
+       END                                                        as Sexo
 FROM funcionario
 UNION
-SELECT CONCAT(nome_dependente, " ", nome_meio, ". ", ultimo_nome)   as Nome_Completo,
-       YEAR(CURRENT_DATE()) - YEAR(dependente.data_nascimento)      as Idade,
+SELECT CONCAT(nome_dependente, " ", nome_meio, ". ", ultimo_nome) as Nome_Completo,
+       YEAR(CURRENT_DATE()) - YEAR(dependente.data_nascimento)    as Idade,
        CASE dependente.sexo
            WHEN 'M' THEN 'Masculino'
            ELSE 'Feminino'
-           END                                                      as Sexo
+           END                                                    as Sexo
 FROM funcionario
 INNER JOIN dependente on dependente.cpf_funcionario = funcionario.cpf
 ORDER BY Idade DESC;
@@ -398,19 +398,19 @@ ORDER BY Idade DESC;
 ```sql
 -- Questão 13
 SELECT CONCAT(primeiro_nome, " ", nome_meio, ". ", ultimo_nome) as Nome_Completo,
-       YEAR(CURRENT_DATE()) - YEAR(data_nascimento)            as Idade,
+       YEAR(CURRENT_DATE()) - YEAR(data_nascimento)             as Idade,
        CASE sexo
            WHEN 'M' THEN 'Masculino'
            ELSE 'Feminino'
-       END                                                     as Sexo
+       END                                                      as Sexo
 FROM funcionario
 UNION
-SELECT CONCAT(nome_dependente, " ", ultimo_nome)               as Nome_Completo,
-       YEAR(CURRENT_DATE()) - YEAR(dependente.data_nascimento) as Idade,
+SELECT CONCAT(nome_dependente, " ", ultimo_nome)                as Nome_Completo,
+       YEAR(CURRENT_DATE()) - YEAR(dependente.data_nascimento)  as Idade,
        CASE dependente.sexo
            WHEN 'M' THEN 'Masculino'
            ELSE 'Feminino'
-           END                                                 as Sexo
+           END                                                  as Sexo
 FROM funcionario
 INNER JOIN dependente on dependente.cpf_funcionario = funcionario.cpf
 ORDER BY Idade DESC;
